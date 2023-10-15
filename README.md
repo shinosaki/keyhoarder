@@ -23,6 +23,17 @@ KeyHoarder is the open-source OpenPGP keyserver software. It provides HKP keyser
    $ npm run deploy
    ```
 
+## Fetch key with GnuPG
+1. Upload your key
+2. Search key with GnuPG
+   - `--keyserver`: Your key server hostname
+   - `--search-keys`: Your OpenPGP key's email address  
+
+Example:
+```bash
+$ gpg --keyserver https://keys.example.com --search-keys hello@example.com
+```
+
 ## Dependencies
 - [Hono](https://hono.dev/)
 - [OpenPGP.js](https://openpgpjs.org/)
