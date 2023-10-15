@@ -22,8 +22,8 @@ app.get(
     return c.render(
       <Fragment>
         <p>Search results for "{q}" ({data.length} keys)</p>
-        <a href={`/pks/lookup?search=${q}&op=index&options=json`}>JSON data</a>
-        <a href={`/pks/lookup?search=${q}&op=get&option=mr`}>Download all public keys</a>
+        <p><a href={`/pks/lookup?search=${q}&op=index&options=json`}>JSON data</a></p>
+        <p><a href={`/pks/lookup?search=${q}&op=get&option=mr`}>Download all public keys</a></p>
         <table>
           <thead>
             <tr>
@@ -44,7 +44,7 @@ app.get(
                   <td>{k.main.fingerprint.toUpperCase().match(/.{1,4}/g).join(' ')}</td>
                   <td>{k.main.algo.name}</td>
                   <td>{new Date(k.main.created).toISOString()}</td>
-                  <td>{new Date(k.main.expired).toISOString()}</td>
+                  <td>{k.main.expired ? new Date(k.main.expired).toISOString() : 'Infinity'}</td>
                   <td>{k.subs.length}</td>
                   <td><a href={`/pks/lookup?search=0x${k.main.fingerprint}&op=get&options=mr`}>Download</a></td>
                 </tr>

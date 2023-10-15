@@ -14,6 +14,10 @@ KeyHoarder is the open-source OpenPGP keyserver software. It provides HKP keyser
    [vars]
    SITE_NAME = "My OpenPGP Key Server"
    ```
+1. Create KV namespaces. and append KV's id to `wrangler.toml`
+   ```bash
+   $ npx wrangler kv:namespace create keyhoarder
+   ```
 1. Deploy to Cloudflare Workers
    ```bash
    $ npm run deploy
