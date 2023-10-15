@@ -12,7 +12,7 @@ KeyHoarder is the open-source OpenPGP keyserver software. It provides HKP keyser
 1. Set `SITE_NAME` from `wrangler.toml`.
    ```toml
    [vars]
-   SITE_NAME = "My OpenPGP Key Server"
+   SITE_NAME = "My OpenPGP Keyserver"
    ```
 1. Create KV namespaces. and append KV's id to `wrangler.toml`
    ```bash
@@ -23,13 +23,21 @@ KeyHoarder is the open-source OpenPGP keyserver software. It provides HKP keyser
    $ npm run deploy
    ```
 
-## Fetch key with GnuPG
-1. Upload your key
-2. Search key with GnuPG
-   - `--keyserver`: Your key server hostname
-   - `--search-keys`: Your OpenPGP key's email address  
+## Send/Search key with GnuPG
+- `--keyserver`: Your keyserver hostname
+- `--search-keys`: Your OpenPGP key's email address
 
-Example:
+### Create key
+```bash
+$ gpg --full-key-gen
+```
+
+### Send key to your keyserver
+```bash
+$ gpg --keyserver https://keys.example.com --send-keys <Your key's fingerprint>
+``` 
+
+### Search key
 ```bash
 $ gpg --keyserver https://keys.example.com --search-keys hello@example.com
 ```
