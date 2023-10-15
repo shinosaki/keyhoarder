@@ -1,0 +1,12 @@
+name = "keyhoarder"
+compatibility_date = "2023-10-01"
+main = "src/worker.js"
+
+[vars]
+# SITE_NAME = "keys.example.com"
+APP_VERSION = "0.1.0"
+
+[[kv_namespaces]]
+binding = "KV"
+id = "_"
+preview_id = "local"
